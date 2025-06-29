@@ -4,7 +4,7 @@ import axios from 'axios';
 import CalendarLayout from './CalendarLayout.vue';
 import BookingDetail from './BookingDetail.vue';
 import SearchComplete from './SearchComplete.vue';
-import stationsMock from '../assets/stations.mock.json';
+//import stationsMock from '../assets/stations.mock.json';
 import type { Station, Booking } from '../types';
 import { STATIONS_URL } from '../constants';
 
@@ -12,9 +12,9 @@ const selectedStation = ref<Station | null>(null);
 const selectedBooking = ref<Booking | null>(null);
 
 async function searchApi() {
-  //const { data } = await axios.get(STATIONS_URL);
-  //return data || [];
-  return stationsMock;
+  const { data } = await axios.get(STATIONS_URL);
+  return data || [];
+  //return stationsMock;
 }
 
 function onStationSelect(item: Station) {

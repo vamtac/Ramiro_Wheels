@@ -1,7 +1,8 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { mount } from '@vue/test-utils';
+import type { VueWrapper } from '@vue/test-utils';
 import { nextTick } from 'vue';
-import SearchComplete from '../searchComplete.vue';
+import SearchComplete from '../SearchComplete.vue';
 
 // Mock data para las pruebas
 const mockStations = [
@@ -196,7 +197,7 @@ describe('SearchComplete', () => {
       await nextTick();
 
       const options = wrapper.findAll('[role="option"]');
-      options.forEach((option) => {
+      options.forEach((option: VueWrapper<Element>) => {
         expect(option.attributes('tabindex')).toBe('0');
       });
     });
@@ -208,7 +209,7 @@ describe('SearchComplete', () => {
       await nextTick();
 
       const options = wrapper.findAll('[role="option"]');
-      options.forEach((option) => {
+      options.forEach((option: VueWrapper<Element>) => {
         expect(option.attributes('aria-selected')).toBe('false');
       });
     });
@@ -281,7 +282,7 @@ describe('SearchComplete', () => {
       const glowElements = wrapper.findAll('.glow');
       expect(glowElements).toHaveLength(4);
 
-      glowElements.forEach((glow) => {
+      glowElements.forEach((glow: VueWrapper<Element>) => {
         expect(glow.attributes('aria-hidden')).toBe('true');
       });
     });

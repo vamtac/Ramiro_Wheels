@@ -57,7 +57,7 @@
       >
         <div
           v-for="(day, index) in days"
-          :key="day.date"
+          :key="index"
           class="flex flex-col rounded-xl border border-gray-200 bg-purple-400 p-2 min-h-[100px] transition relative"
           :class="{
             'bg-green-400 border-green-300': dragOverDay === day.dateStr,
@@ -81,7 +81,7 @@
           <div class="flex-1 space-y-1" v-if="day.bookings.length > 0">
             <div
               v-for="(booking, bookingIndex) in day.bookings"
-              :key="booking.id"
+              :key="bookingIndex"
               role="listitem"
             >
               <button
