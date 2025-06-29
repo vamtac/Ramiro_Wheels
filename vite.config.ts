@@ -8,4 +8,5 @@ export default defineConfig({
   build: {
     outDir: 'docs',
   },
+  base: '/Ramiro_Wheels/',
 });
